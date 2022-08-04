@@ -13,6 +13,7 @@ import com.github.leonard84.techpoker.data.Choice;
 import com.github.leonard84.techpoker.data.GameId;
 import com.github.leonard84.techpoker.data.PlayerId;
 import com.github.leonard84.techpoker.exceptions.GameNotFoundException;
+import com.github.leonard84.techpoker.messages.Card;
 import com.github.leonard84.techpoker.services.GameService;
 import com.github.leonard84.techpoker.services.GameSession;
 import org.springframework.stereotype.Controller;
@@ -27,7 +28,7 @@ import org.springframework.web.servlet.view.RedirectView;
 @Controller
 public class PokerController {
 
-    private static final List<String> CARDS = Arrays.stream(Choice.values()).map(Enum::name).collect(Collectors.toList());
+    private static final List<Choice> CARDS = Arrays.asList(Choice.values());
 
     @Inject
     private PokerProperties pokerProperties;
