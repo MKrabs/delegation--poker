@@ -8,7 +8,7 @@
 
 /* On mouse-over, add a deeper shadow */
 .poker-card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.7);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.42);
     cursor: pointer;
 }
 
@@ -19,12 +19,12 @@
 }
 
 .blue-cards .poker-card {
-    background-color: #477586;
-    color: white;
+    background-color: #fffbf8;
+    color: black;
 }
 
 .blue-cards .poker-card.selected {
-    background-color: #659DBA;
+    background-color: #fff0bb;
 }
 
 .green-cards .poker-card {

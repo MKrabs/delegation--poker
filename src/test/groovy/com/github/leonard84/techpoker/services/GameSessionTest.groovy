@@ -28,7 +28,7 @@ class GameSessionTest extends Specification {
         def playerId = gameSession.join('player')
 
         when:
-        gameSession.vote(playerId, Choice.Sell)
+        gameSession.vote(playerId, Choice.D2)
 
         then:
         noExceptionThrown()
@@ -49,10 +49,10 @@ class GameSessionTest extends Specification {
     def "result is calculated on demand with votes"() {
         given:
         def player1 = gameSession.join('player1')
-        gameSession.vote(player1, Choice.Sell)
+        gameSession.vote(player1, Choice.D2)
 
         def player2 = gameSession.join('player2')
-        gameSession.vote(player2, Choice.Sell)
+        gameSession.vote(player2, Choice.D2)
 
         def player3 = gameSession.join('player3')
         gameSession.vote(player3, Choice.COFFEE)
@@ -98,7 +98,7 @@ class GameSessionTest extends Specification {
         !stats.playerVotes[0].hasVoted()
 
         when:
-        gameSession.vote(player1, Choice.Sell)
+        gameSession.vote(player1, Choice.D2)
         stats = gameSession.stats
 
         then:
@@ -110,7 +110,7 @@ class GameSessionTest extends Specification {
     def "votes can be reset"() {
         given:
         def player1 = gameSession.join('player1')
-        gameSession.vote(player1, Choice.Sell)
+        gameSession.vote(player1, Choice.D2)
 
         expect:
         gameSession.stats.currentVotes == 1
@@ -125,7 +125,7 @@ class GameSessionTest extends Specification {
     def "a player can change his vote"() {
         given:
         def player1 = gameSession.join('player1')
-        gameSession.vote(player1, Choice.Sell)
+        gameSession.vote(player1, Choice.D2)
 
         expect:
         with(gameSession.tally()) {
@@ -134,7 +134,7 @@ class GameSessionTest extends Specification {
         }
 
         when:
-        gameSession.vote(player1, Choice.Delegate)
+        gameSession.vote(player1, Choice.D7)
 
         then:
         with(gameSession.tally()) {
@@ -146,10 +146,10 @@ class GameSessionTest extends Specification {
     def "a players vote can be queried"() {
         given:
         def player1 = gameSession.join('player1')
-        gameSession.vote(player1, Choice.Sell)
+        gameSession.vote(player1, Choice.D2)
 
         expect:
-        gameSession.getVote(player1) == Choice.Sell
+        gameSession.getVote(player1) == Choice.D2
     }
 
 

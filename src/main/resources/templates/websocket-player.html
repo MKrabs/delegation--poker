@@ -52,7 +52,9 @@
         {{#each cards}}
         <div class="col-4 mb-3">
             <div class="poker-card" data-card="{{key}}">
-                <h1 class="poker-card-content">{{displayName}}</h1>
+                <h2 class="poker-card-content pt-3">{{displayName}}</h2>
+                <hr class="solid mx-3" style="border: 2px solid {{colour}};border-radius: 5px;">
+                <h6 class="poker-card-content">{{displayDescription}}</h6>
             </div>
         </div>
         {{/each}}
