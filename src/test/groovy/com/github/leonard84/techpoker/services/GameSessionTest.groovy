@@ -28,7 +28,7 @@ class GameSessionTest extends Specification {
         def playerId = gameSession.join('player')
 
         when:
-        gameSession.vote(playerId, Choice.V13)
+        gameSession.vote(playerId, Choice.Sell)
 
         then:
         noExceptionThrown()
@@ -49,10 +49,10 @@ class GameSessionTest extends Specification {
     def "result is calculated on demand with votes"() {
         given:
         def player1 = gameSession.join('player1')
-        gameSession.vote(player1, Choice.V13)
+        gameSession.vote(player1, Choice.Sell)
 
         def player2 = gameSession.join('player2')
-        gameSession.vote(player2, Choice.V13)
+        gameSession.vote(player2, Choice.Sell)
 
         def player3 = gameSession.join('player3')
         gameSession.vote(player3, Choice.COFFEE)
@@ -61,18 +61,18 @@ class GameSessionTest extends Specification {
         Result result = gameSession.tally()
 
         then:
-        result.average == 13.0d
-        result.max == 13
-        result.min == 13
+        result.average == 2.0d
+        result.max == 2
+        result.min == 2
 
         and:
         result.votes.choice == Choice.values() as List
 
         and:
-        result.votes.players == [[], [], [], [], [], ['player1', 'player2'], [], [], [], ['player3'], []]
+        result.votes.players == [[], ['player1', 'player2'], [], [], [], [], [], [], [], ['player3'], []]
 
         and:
-        result.votes.count == [0, 0, 0, 0, 0, 2, 0, 0, 0, 1, 0]
+        result.votes.count == [0, 2, 0, 0, 0, 0, 0, 0, 0, 1, 0]
     }
 
     def "game stats can be queried for no players"() {
@@ -98,7 +98,7 @@ class GameSessionTest extends Specification {
         !stats.playerVotes[0].hasVoted()
 
         when:
-        gameSession.vote(player1, Choice.V13)
+        gameSession.vote(player1, Choice.Sell)
         stats = gameSession.stats
 
         then:
@@ -110,7 +110,7 @@ class GameSessionTest extends Specification {
     def "votes can be reset"() {
         given:
         def player1 = gameSession.join('player1')
-        gameSession.vote(player1, Choice.V13)
+        gameSession.vote(player1, Choice.Sell)
 
         expect:
         gameSession.stats.currentVotes == 1
@@ -125,31 +125,31 @@ class GameSessionTest extends Specification {
     def "a player can change his vote"() {
         given:
         def player1 = gameSession.join('player1')
-        gameSession.vote(player1, Choice.V13)
+        gameSession.vote(player1, Choice.Sell)
 
         expect:
         with(gameSession.tally()) {
-            min == 13
-            max == 13
+            min == 2
+            max == 2
         }
 
         when:
-        gameSession.vote(player1, Choice.V5)
+        gameSession.vote(player1, Choice.Delegate)
 
         then:
         with(gameSession.tally()) {
-            min == 5
-            max == 5
+            min == 7
+            max == 7
         }
     }
 
     def "a players vote can be queried"() {
         given:
         def player1 = gameSession.join('player1')
-        gameSession.vote(player1, Choice.V13)
+        gameSession.vote(player1, Choice.Sell)
 
         expect:
-        gameSession.getVote(player1) == Choice.V13
+        gameSession.getVote(player1) == Choice.Sell
     }
 
 

@@ -59,7 +59,7 @@ public class PokerWebSocketController {
         Locale locale = LocaleContextHolder.getLocaleContext().getLocale();
         List<Card> cards = Arrays.stream(Choice.values())
                 .map(choice ->
-                        new Card(choice.name(), messageSource.getMessage("card.values." + choice.name(), null, locale)))
+                        new Card(choice.name(), messageSource.getMessage("card.values." + choice.name(), null, locale), choice.getDescription()))
                 .collect(Collectors.toList());
 
         return new Cards(cards);
