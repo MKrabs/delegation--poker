@@ -69,7 +69,7 @@ class GameSessionTest extends Specification {
         result.votes.choice == Choice.values() as List
 
         and:
-        result.votes.players == [[], ['player1', 'player2'], [], [], [], [], [], [], [], ['player3'], []]
+        result.votes.players == [[], ['player1', 'player2'], [], [], [], [], [], ['player3'], []]
 
         and:
         result.votes.count == [0, 2, 0, 0, 0, 0, 0, 0, 0, 1, 0]
