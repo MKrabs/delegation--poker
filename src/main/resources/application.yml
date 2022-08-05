@@ -28,7 +28,7 @@ spring:
 server:
   port: 8080
 poker:
-  external-url: http://localhost:8080
+  external-url: https://delegation--poker.herokuapp.com  #http://localhost:8080
 ---
 spring:
   config:
@@ -41,7 +41,7 @@ server:
     enabled: true
   port: 8443
 poker:
-  external-url: https://localhost:8443
+  external-url: https://delegation--poker.herokuapp.com  #https://localhost:8443
 ---
 spring:
   config:
