@@ -44,8 +44,9 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr  data-th-each="entry : ${result.votes}" class="result-list">
-                                <td class="result-key text-right" data-th-text="${ #messages.msg('card.values.' + entry.choice) }"></td>
+                            <tr data-th-each="entry : ${result.votes}" class="result-list"
+                                th:style="'border-left: 8px solid ' + ${ entry.choice.colour } + ';border-radius: 5px;'">
+                                <td class="result-key text-right" data-th-text="${ entry.choice.delegation }"></td>
                                 <td class="result-value text-right" data-th-text="${entry.count}"></td>
                                 <td  data-th-text="${#strings.listJoin(entry.players,', ')}">&nbsp;</td>
                             </tr>
@@ -67,8 +68,23 @@
 
 <script language="JavaScript">
     var data = [];
+
+    const componentToHex = c => {
+        let hex = c.toString(16);
+        return hex.length === 1 ? "0" + hex : hex;
+    };
+    const rgbToHex = (r, g, b) => "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+
+    const splitrgb = (input) => {
+        const rgb = input.style['border-left-color'].split("(")[1].split(")")[0].split(',');
+        return rgbToHex(parseInt(rgb[0]), parseInt(rgb[1]), parseInt(rgb[2]))
+    }
+
+    // TODO : color splitter rgb top hex
+    // TODO : Websocket result
+
     $('.result-list').each(function (idx, elem) {
-        data.push({key:$('.result-key', elem).text(), value:$('.result-value', elem).text()});
+        data.push({key:$('.result-key', elem).text(), value:$('.result-value', elem).text(), colr:splitrgb(elem)});
     });
     new Morris.Bar({
         // ID of the element in which to draw the chart.
@@ -82,7 +98,10 @@
         ykeys: ['value'],
         // Labels for the ykeys -- will be displayed when you hover over the
         // chart.
-        labels: ['Cards']
+        labels: ['Cards'],
+        barColors: function (row, series, type) {
+            return data[row.x]['colr'];
+        },
     });
 </script>
 </body>
