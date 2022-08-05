@@ -56,7 +56,7 @@ function updateGame(data) {
     if (mode === 'voting') {
         data.totalVotes = data.playerVotes.length;
         data.votePercent = data.currentVotes * 100 / data.totalVotes;
-        document.title = "Tech Poker (" + data.currentVotes + "/" + data.totalVotes + ")";
+        document.title = "Delegation Poker (" + data.currentVotes + "/" + data.totalVotes + ")";
         var html = gameTemplate(data);
         $('#content').html(html);
         if (data.votePercent > 99) {
@@ -74,7 +74,7 @@ function updateGame(data) {
         $('#copyToClipboard').click(copyToClipboard);
         renderQr();
     } else if (mode === 'result') {
-        document.title = "Tech Poker";
+        document.title = "Delegation Poker";
         if (data.resetRequested) {
             showResetRequestedNotification();
         }
@@ -137,7 +137,7 @@ function showResetRequestedNotification() {
 
 function showResetRequestedNotificationInternal() {
     var iconUrl = $('#logo').attr('src');
-    var notification = new Notification("Tech Poker: Please Reset the Voting", {
+    var notification = new Notification("Delegation Poker: Please Reset the Voting", {
         body: "Clicking on this notification will reset the Vote",
         icon: iconUrl,
         badge: iconUrl

@@ -1,6 +1,6 @@
 spring:
   application:
-    name: Tech Poker
+    name: Delegation Poker
   messages:
       basename: messages
   thymeleaf:
@@ -48,7 +48,7 @@ spring:
     activate:
       on-profile: heroku
 poker:
-  external-url: https://tech-poker.herokuapp.com
+  external-url: https://delegation--poker.herokuapp.com
 management:
   server:
     add-application-context-header: false

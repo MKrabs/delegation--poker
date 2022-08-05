@@ -72,7 +72,7 @@ class GameSessionTest extends Specification {
         result.votes.players == [[], ['player1', 'player2'], [], [], [], [], [], ['player3'], []]
 
         and:
-        result.votes.count == [0, 2, 0, 0, 0, 0, 0, 0, 0, 1, 0]
+        result.votes.count == [0, 2, 0, 0, 0, 0, 0, 1, 0]
     }
 
     def "game stats can be queried for no players"() {

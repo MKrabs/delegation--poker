@@ -16,6 +16,6 @@ class ApplicationIT extends GebReportingSpec {
         go "http://localhost:$port"
 
         then:
-        title == 'Tech Poker'
+        title == 'Delegation Poker'
     }
 }
