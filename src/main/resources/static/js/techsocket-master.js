@@ -98,12 +98,15 @@ function showResult(data) {
             // the chart.
             data: data.votes,
             // The name of the data record attribute that contains x-values.
-            xkey: 'choice',
+            xkey: 'name',
             // A list of names of data record attributes that contain y-values.
             ykeys: ['count'],
             // Labels for the ykeys -- will be displayed when you hover over the
             // chart.
-            labels: ['Cards']
+            labels: ['Cards'],
+            barColors: function (row, series, type) {
+                return data['votes'][row.x]['colour'];
+            },
         });
     }
 }

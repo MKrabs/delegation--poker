@@ -106,8 +106,8 @@
                         </thead>
                         <tbody>
                         {{#each votes}}
-                        <tr class="result-list">
-                            <td class="result-key text-right">{{choice}}</td> <!-- TODO -->
+                        <tr class="result-list" style="border-left: 8px solid {{ colour }};border-radius: 5px;">
+                            <td class="result-key text-right">{{name}}</td> <!-- TODO -->
                             <td class="result-value text-right">{{count}}</td>
                             <td>{{players}}</td>
                         </tr>
