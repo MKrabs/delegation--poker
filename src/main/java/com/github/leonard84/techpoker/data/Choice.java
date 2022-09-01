@@ -1,15 +1,15 @@
 package com.github.leonard84.techpoker.data;
 
 public enum Choice {
-    D1(1, "Verkünden", "Die Führungskraft trifft eine Entscheidung und verkündet sie. Meist ohne Begründung oder Diskussion.", "#f27da9"),
-    D2(2, "Verkaufen", "Die Führungskraft entscheidet, begründet die Entscheidung und versucht das Team davon zu überzeugen.", "#ee4437"),
-    D3(3, "Befragen", "Die Führungskraft holt Meinungen des Teams ein, bevor sie eine Entscheidung trifft.", "#f48226"),
-    D4(4, "Einigen", "Es gibt eine Diskussion mit allen Beteiligten und gemeinsam wird im Konsens entschieden.", "#ddb92e"),
-    D5(5, "Beraten", "Nachdem sich das Team Rat bei der Führungskraft einholt, trifft das Team die Entscheidung.", "#0fb16d"),
-    D6(6, "Erkundigen", "Das Team trifft die Entscheidung und die Führungskraft erkundigt sich nach dem Ergebnis und den Beweggründen.", "#08bbe8"),
-    D7(7, "Delegieren", "Die Führungskraft überlässt dem Team die autonome Entscheidung.", "#8b72b4"),
-    COFFEE("☕", "Ich trinke lieber Kaffee", "#627c7b"),
-    QUESTIONMARK("?", "Ich entziehe mich", "#4285f4");
+    D1(1, "Tell", "The leader makes a decision and announces it to the team, usually without explanation or discussion.", "#f27da9"),
+    D2(2, "Sell", "The leader decides, justifies the decision and tries to convince the team.", "#ee4437"),
+    D3(3, "Consult", "The leader seeks opinions from the team before taking a decision.", "#f48226"),
+    D4(4, "Agree", "There is a discussion with all stakeholders and decisions are made together by consensus.", "#ddb92e"),
+    D5(5, "Advise", "After seeking advice from the leader, the team will come to a decision.", "#0fb16d"),
+    D6(6, "Inquire", "The team reaches a decision and the manager inquires about the result and the motives.", "#08bbe8"),
+    D7(7, "Delegate", "The manager leaves autonomous decision-making to the team without any direct influence.", "#8b72b4"),
+    COFFEE("☕", "I rather drink coffee", "#627c7b"),
+    QUESTIONMARK("?", "I elude myself", "#4285f4");
 
     private final boolean hasValue;
     private final int value;
