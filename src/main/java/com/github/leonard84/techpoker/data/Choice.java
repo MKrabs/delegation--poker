@@ -8,8 +8,8 @@ public enum Choice {
     D5(5, "Advise", "After seeking advice from the leader, the team will come to a decision.", "#0fb16d"),
     D6(6, "Inquire", "The team reaches a decision and the manager inquires about the result and the motives.", "#08bbe8"),
     D7(7, "Delegate", "The manager leaves autonomous decision-making to the team without any direct influence.", "#8b72b4"),
-    COFFEE("☕", "I rather drink coffee", "#627c7b"),
-    QUESTIONMARK("?", "I elude myself", "#4285f4");
+    COFFEE("☕", "I rather drink coffee.", "#627c7b"),
+    QUESTIONMARK("?", "I abstain myself.", "#4285f4");
 
     private final boolean hasValue;
     private final int value;
